@@ -9,13 +9,8 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-
+import { userRouter } from "./router";
 const app = express();
-
-const PORT = 4000; 
-
-const handleListening = () => 
-    console.log(`Listening on: http://localhost:${PORT}`);
 
 const handleHome = (req, res) => res.send("Hello from Haein");
 
@@ -31,4 +26,7 @@ app.get("/", handleHome);
 
 app.get("/profile", handleProfile);
 
-app.listen(PORT, handleListening);
+app.use("/user", userRouter);
+//use는 누군가가 /user에 접속하면 이 router 전체를 사용하겠다는 의미
+
+export default app;
