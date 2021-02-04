@@ -16,6 +16,7 @@ import routes from "./routes";
 const app = express();
 
 //use는 누군가가 접속하면 이 router 전체를 사용하겠다는 의미
+app.set("view engine", "pug");
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( { extended: true }));
