@@ -2,7 +2,6 @@
  * render 함수의 첫번째 인자는 템플릿이고, 
  * 두번째 인자는 템플릿에 추가할 정보가 담긴 객체
  */
-import { videos } from "../db";
 import routes from "../routes";
 
 export const home = (req, res) => {
