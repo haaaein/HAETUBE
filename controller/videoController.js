@@ -3,9 +3,16 @@
  * 두번째 인자는 템플릿에 추가할 정보가 담긴 객체
  */
 import routes from "../routes";
+import Video from "../models/Video";
 
-export const home = (req, res) => {
-    res.render("home", { pageTitle: "Home", videos });
+export const home = async (req, res) => {
+    try {
+        const videos = await Video.find({});
+        res.render("home", { pageTitle: "Home", videos });
+    } catch(error){
+        console.log(error);
+        res.render("home", { pageTitle: "Home", videos: [] });
+    }
 };
 
 export const search = (req, res) => {
