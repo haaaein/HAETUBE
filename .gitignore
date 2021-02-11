@@ -75,3 +75,4 @@ dist
 # FuseBox cache
 .fusebox/
 package-lock.json
+uploads
