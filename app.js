@@ -10,7 +10,9 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import passport from "passport";
-import session from "express-session";
+import mongoose from "mongoose";
+import session, { Cookie } from "express-session";
+import MongoStore from "connect-mongo";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
 import userRouter from "./Routers/userRouter";
@@ -20,6 +22,8 @@ import globalRouter from "./Routers/globalRouter";
 import "./passport";
 
 const app = express();
+
+const CookieStore = MongoStore(session);
 
 //use는 누군가가 접속하면 이 router 전체를 사용하겠다는 의미
 app.use(helmet( { contentSecurityPolicy: false } ));
@@ -33,7 +37,8 @@ app.use(morgan("dev"));
 app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: true,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new CookieStore({ mongooseConnection: mongoose.connection })
     })
 );
 app.use(passport.initialize());
