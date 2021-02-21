@@ -19,6 +19,10 @@ const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
 //:를 붙이면 값이 변하는 것을 안다. ex) /1/delete
 
+// Github
+const GITHUB = "/auth/github";
+const GITHUB_CALLBACK = "/auth/github/callback";
+
 const routes = {
     home: HOME,
     join: JOIN,
@@ -57,7 +61,9 @@ const routes = {
         } else {
             return DELETE_VIDEO;
         }
-    }
+    },
+    github: GITHUB,
+    githubCallback: GITHUB_CALLBACK
 };
 
 export default routes;
