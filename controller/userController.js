@@ -46,6 +46,8 @@ export const githubLoginCallback = async (_, __, profile, cb) => {
     const user = await User.findOne({ email });
     if (user) {
       user.githubId = id;
+      user.avatarUrl = avatarUrl;
+      user.name = name;
       user.save();
       return cb(null, user);
     }
@@ -66,8 +68,8 @@ export const postGithubLogIn = (req, res) => {
 };
 
 export const logout = (req, res) => {
-    req.logout();
-    res.redirect(routes.home);
+  req.logout();
+  res.redirect(routes.home);
 };
 
 export const getMe = (req, res) => {
