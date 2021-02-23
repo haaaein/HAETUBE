@@ -19,7 +19,7 @@ import userRouter from "./Routers/userRouter";
 import videoRouter from "./Routers/videoRouter";
 import globalRouter from "./Routers/globalRouter";
 
-import "./passport";
+import passportConfig from "./passport";
 
 const app = express();
 
