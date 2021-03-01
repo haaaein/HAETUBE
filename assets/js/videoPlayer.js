@@ -72,17 +72,17 @@ const formatDate = seconds => {
         totalSeconds = `0${totalSeconds}`;
     }
     return `${hours}:${minutes}:${totalSeconds}`;
-    };
+};
   
-    function getCurrentTime() {
-        currentTime.innerHTML = formatDate(videoPlayer.currentTime);
-    }
+function getCurrentTime() {
+    currentTime.innerHTML = formatDate(videoPlayer.currentTime);
+}
   
-    function setTotalTime() {
-        const totalTimeString = formatDate(videoPlayer.duration);
-        totalTime.innerHTML = totalTimeString;
-        setInterval(getCurrentTime, 1000);
-    }
+function setTotalTime() {
+    const totalTimeString = formatDate(videoPlayer.duration);
+    totalTime.innerHTML = totalTimeString;
+    setInterval(getCurrentTime, 1000);
+}
     
 
 function init() {
