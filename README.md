@@ -1,4 +1,4 @@
-# WeTube
+# HaeTube
 
 Cloning Youtube with Vanilla and NodeJS
 
